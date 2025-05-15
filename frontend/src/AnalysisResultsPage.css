@@ -1,0 +1,113 @@
+.results-container {
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.results-header {
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.results-header h1 {
+  color: #333;
+}
+
+.cv-category-section {
+  margin-bottom: 30px;
+}
+
+.cv-category-section h2 {
+  color: #555;
+  border-bottom: 2px solid #777;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+.cv-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.cv-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.cv-card h3 {
+  margin-top: 0;
+  color: #007bff;
+}
+
+.cv-card h4 {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+.cv-card p {
+  font-size: 0.9em;
+  line-height: 1.6;
+  color: #333;
+}
+
+.cv-card .status-match {
+  color: green;
+  font-weight: bold;
+}
+
+.cv-card .status-no-match {
+  color: red;
+  font-weight: bold;
+}
+
+.cv-card .status-potential-match {
+  color: orange;
+  font-weight: bold;
+}
+
+.cv-card .status-error {
+  color: #cc0000;
+  font-weight: bold;
+}
+
+.cv-card .status-unknown {
+  color: #777;
+}
+
+.detailed-match-info {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed #ccc;
+}
+
+.detailed-match-info h5 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: #666;
+  font-size: 0.95em;
+}
+
+.detailed-match-info ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  padding-left: 0;
+  font-size: 0.85em;
+}
+
+.detailed-match-info ul li {
+  margin-bottom: 3px;
+}
+
+.error-message {
+  color: red;
+  padding: 10px;
+  border: 1px solid red;
+  background-color: #ffe0e0;
+  border-radius: 5px;
+}
+

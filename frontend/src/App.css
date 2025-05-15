@@ -1,0 +1,238 @@
+/* General App Styles */
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f4f7f6; /* Light grayish background */
+  color: #333; /* Default text color */
+}
+
+/* Main Navigation */
+.main-nav {
+  background-color: #007bff; /* Primary blue */
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.main-nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.main-nav li {
+  margin: 0 15px;
+}
+
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  background-color: #0056b3; /* Darker blue for hover/active */
+}
+
+/* Content Area */
+.content-area {
+  flex-grow: 1;
+  padding: 20px;
+  max-width: 1200px; /* Max width for content */
+  margin: 0 auto; /* Center content */
+  width: 100%;
+}
+
+.page-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  text-align: left;
+}
+
+.page-container h1, .page-container h2 {
+  color: #007bff;
+}
+
+/* Footer */
+.app-footer {
+  background-color: #343a40; /* Dark footer */
+  color: white;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 0.9em;
+  margin-top: auto; /* Pushes footer to the bottom */
+}
+
+/* Basic Form Styling (for FileUploadPage placeholder) */
+form div {
+  margin-bottom: 15px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+form input[type="file"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: calc(100% - 18px); /* Adjust for padding and border */
+}
+
+form button[type="submit"] {
+  background-color: #28a745; /* Green for submit */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+  background-color: #218838; /* Darker green */
+}
+
+/* App-header (from default create-react-app, can be customized or removed) */
+.App-header {
+  /* background-color: #282c34; */ /* Removing default dark header for now */
+  /* min-height: 10vh; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* font-size: calc(10px + 2vmin); */
+  /* color: white; */
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/* Progress Bar Styling */
+.progress-bar-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #e9ecef; /* Light grey background for the container */
+  border-radius: 4px;
+}
+
+.progress-bar-container p {
+  margin-bottom: 5px;
+  font-size: 0.9em;
+  color: #495057; /* Darker text for progress label */
+}
+
+.progress-bar-container progress {
+  width: 100%;
+  height: 20px;
+  border-radius: 4px;
+  overflow: hidden; /* Ensures the fill stays within the rounded bounds */
+}
+
+/* Styling for the progress bar fill (track) */
+.progress-bar-container progress::-webkit-progress-bar {
+  background-color: #ced4da; /* Lighter grey for the track */
+  border-radius: 4px;
+}
+
+/* Styling for the progress bar value (fill) */
+.progress-bar-container progress::-webkit-progress-value {
+  background-color: #007bff; /* Primary blue for the fill */
+  border-radius: 4px;
+  transition: width 0.2s ease-in-out;
+}
+
+.progress-bar-container progress::-moz-progress-bar {
+  background-color: #007bff; /* Primary blue for the fill (Firefox) */
+  border-radius: 4px;
+  transition: width 0.2s ease-in-out;
+}
+
+/* Message Styling */
+.upload-message {
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.upload-message.info {
+    background-color: #e7f3fe; /* Light blue for info */
+    color: #0c5460;
+    border: 1px solid #b8daff;
+}
+
+.upload-message.success {
+    background-color: #d4edda; /* Light green for success */
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.upload-message.error {
+    background-color: #f8d7da; /* Light red for error */
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+
+/* Enhanced Progress Bar Styling */
+.progress-bar-wrapper {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.progress-bar-wrapper label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333; /* Darker label text */
+}
+
+.progress-bar-container {
+  width: 100%;
+  background-color: #e9ecef; /* Light grey background for the track */
+  border-radius: 8px; /* More rounded corners */
+  padding: 3px; /* Small padding to contain the fill nicely */
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); /* Inner shadow for depth */
+}
+
+.progress-bar-fill {
+  height: 20px;
+  background-color: #007bff; /* Primary blue for the fill */
+  border-radius: 5px; /* Rounded corners for the fill */
+  text-align: center;
+  line-height: 20px; /* Vertically center text */
+  color: white;
+  font-weight: bold;
+  font-size: 0.8em;
+  transition: width 0.3s ease-in-out; /* Smooth transition for width changes */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Glow effect */
+}
+

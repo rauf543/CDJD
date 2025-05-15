@@ -1,0 +1,26 @@
+Jane Smith
+Email: jane.smith@example.com
+Phone: 987-654-3210
+
+Summary
+A recent graduate with a Bachelor's degree in Marketing. Eager to apply theoretical knowledge in a practical setting. Strong communication and organizational skills.
+
+Education
+Bachelor of Arts in Marketing
+State University, Townsville, USA
+Graduated: December 2023
+
+Experience
+Marketing Intern | Creative Solutions Ltd. | Townsville, USA | June 2023 – August 2023
+- Assisted with social media campaigns.
+- Conducted market research for new product launches.
+- Prepared presentations for client meetings.
+
+Skills
+- Marketing Strategy
+- Social Media Management
+- Market Research
+- Content Creation
+- Communication Skills
+- Microsoft Office Suite (Word, Excel, PowerPoint)
+- Google Analytics (Basic)
