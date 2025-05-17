@@ -16,8 +16,8 @@ def create_app(config_name='default'):
     from app.routes.jd_routes import jd_bp
     from app.routes.analysis_routes import analysis_bp
     
-    app.register_blueprint(uploads_bp)
-    app.register_blueprint(jd_bp)
-    app.register_blueprint(analysis_bp)
+    app.register_blueprint(uploads_bp, url_prefix='/uploads')
+    app.register_blueprint(jd_bp, url_prefix='/jd')
+    app.register_blueprint(analysis_bp, url_prefix='/analysis')
     
     return app

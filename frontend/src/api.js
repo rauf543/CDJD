@@ -1,7 +1,7 @@
 // src/api.js
 import axios from "axios";
 
-const API_BASE_URL = "https://5000-i44x6u4l1bxa2umubvmxd-027efc31.manus.computer/api/v1"; // Updated to new public backend URL
+const API_BASE_URL = "http://51.20.99.22/api"; // Updated to new public backend URL
 
 // Function to upload Job Description file
 export const uploadJdApi = async (jdFile, onUploadProgress) => {
