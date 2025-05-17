@@ -2,10 +2,18 @@
 from flask import Flask
 from app.extensions import db, migrate
 from config_postgres import config
+from flask_cors import CORS
 
 def create_app(config_name='default'):
     app = Flask(__name__)
     app.config.from_object(config[config_name])
+    
+    # Initialize CORS:
+    CORS(app, resources={
+        r"/uploads/*": {"origins": "*"},
+        r"/jd/*": {"origins": "*"},
+        r"/analysis/*": {"origins": "*"}
+    }, supports_credentials=True)
     
     # Initialize extensions
     db.init_app(app)
