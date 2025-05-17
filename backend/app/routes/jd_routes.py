@@ -1,10 +1,10 @@
 from flask import Blueprint, request, jsonify, current_app
 from app.models import JobDescription, UploadedFile # Assuming these models exist and are relevant
-from main import db # Assuming db is initialized in main.py or app.py
+from app.extensions import db # Updated import to use extensions
 
-bp = Blueprint("jd_operations", __name__)
+jd_bp = Blueprint("jd_operations", __name__) # Renamed from bp to jd_bp
 
-@bp.route("/<int:jd_id>/requirements", methods=["GET"])
+@jd_bp.route("/<int:jd_id>/requirements", methods=["GET"])
 def get_jd_requirements(jd_id):
     current_app.logger.info(f"Attempting to fetch requirements for JD ID: {jd_id}")
     jd_entry = db.session.get(JobDescription, jd_id)
@@ -32,7 +32,7 @@ def get_jd_requirements(jd_id):
     current_app.logger.info(f"Successfully fetched requirements for JD ID: {jd_id}: {parsed_requirements}")
     return jsonify({"jd_id": jd_id, "jd_filename": jd_filename, "requirements": parsed_requirements}), 200
 
-@bp.route("/<int:jd_id>/requirements", methods=["POST"])
+@jd_bp.route("/<int:jd_id>/requirements", methods=["POST"])
 def save_jd_requirements(jd_id):
     current_app.logger.info(f"Attempting to save confirmed requirements for JD ID: {jd_id}")
     jd_entry = db.session.get(JobDescription, jd_id)
@@ -71,4 +71,3 @@ def save_jd_requirements(jd_id):
         db.session.rollback()
         current_app.logger.exception(f"Error saving confirmed requirements for JD ID: {jd_id}")
         return jsonify({"error": "Failed to save requirements", "details": str(e)}), 500
-

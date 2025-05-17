@@ -1,14 +1,14 @@
 from flask import Blueprint, request, jsonify, current_app
-from main import db
+from app.extensions import db # Updated import to use extensions
 from app.models import JobDescription, CVEntry, AnalysisSession, AnalysisResult, UploadedFile
 from app.services.llm_service import ClaudeService, LLMAnalysisError
 from app.services.document_parser import FileConverter # For potential path construction if needed
 import json
 import os # For checking file existence
 
-bp = Blueprint("analysis", __name__)
+analysis_bp = Blueprint("analysis", __name__) # Renamed from bp to analysis_bp
 
-@bp.route("/start", methods=["POST"])
+@analysis_bp.route("/start", methods=["POST"])
 def start_analysis():
     current_app.logger.info("Analysis start endpoint hit.")
     data = request.get_json()
@@ -175,7 +175,7 @@ def start_analysis():
         "errors": errors_summary if errors_summary else None
     }), 201
 
-@bp.route("/results/<int:session_id>", methods=["GET"])
+@analysis_bp.route("/results/<int:session_id>", methods=["GET"])
 def get_analysis_results(session_id):
     current_app.logger.info(f"Fetching results for session ID: {session_id}")
     analysis_session = AnalysisSession.query.get(session_id)
@@ -215,7 +215,7 @@ def get_analysis_results(session_id):
         "results": output_results
     }), 200
 
-@bp.route("/status/<int:session_id>", methods=["GET"])
+@analysis_bp.route("/status/<int:session_id>", methods=["GET"])
 def get_analysis_status(session_id):
     analysis_session = AnalysisSession.query.get(session_id)
     if not analysis_session:
@@ -228,4 +228,3 @@ def get_analysis_status(session_id):
         "cvs_analyzed_count": analysis_session.cvs_analyzed_count,
         "created_at": analysis_session.created_at.isoformat()
     }), 200
-

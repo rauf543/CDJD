@@ -5,18 +5,18 @@ import zipfile
 import uuid
 import traceback # Import traceback module
 
-from main import db # Assuming db is initialized in main.py or app.py
+from app.extensions import db # Updated import to use extensions
 from app.models import UploadedFile, JobDescription, CVEntry # Import your models
 # Updated import: JDParser now handles conversion and direct PDF parsing
 from app.services.document_parser import TextExtractor, JDParser, DocumentProcessingError, FileConverter 
 
-bp = Blueprint("uploads", __name__)
+uploads_bp = Blueprint("uploads", __name__) # Renamed from bp to uploads_bp
 
 def allowed_file(filename, allowed_extensions):
     return "." in filename and \
            filename.rsplit(".", 1)[1].lower() in allowed_extensions
 
-@bp.route("/cvs", methods=["POST"])
+@uploads_bp.route("/cvs", methods=["POST"])
 def upload_cvs():
     if "files" not in request.files:
         return jsonify({"error": "No file part"}), 400
@@ -129,7 +129,7 @@ def upload_cvs():
         "errors": errors if errors else None 
     }), 201
 
-@bp.route("/jd", methods=["POST"])
+@uploads_bp.route("/jd", methods=["POST"])
 def upload_jd():
     if "file" not in request.files:
         current_app.logger.error("No file part in JD upload request.")
@@ -233,4 +233,3 @@ def upload_jd():
     else:
         current_app.logger.error(f"File type not allowed for JD: {original_fn}")
         return jsonify({"error": "File type not allowed for Job Description"}), 400
-
