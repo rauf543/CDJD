@@ -21,7 +21,7 @@ class UploadedFile(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     original_filename = db.Column(db.String(255), nullable=False)
     stored_filename = db.Column(db.String(255), unique=True, nullable=False) # e.g., UUID.ext
-    file_type = db.Column(db.String(10), nullable=False)  # CV or JD
+    file_type = db.Column(db.String(64), nullable=False)  # CV or JD
     upload_timestamp = db.Column(db.DateTime, default=datetime.utcnow)
     processing_status = db.Column(db.String(50), default="uploaded") # e.g., uploaded, processing, processed, error
     raw_text = db.Column(db.Text, nullable=True)
